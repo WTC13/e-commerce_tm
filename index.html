@@ -3,43 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesso - E-commerce de Esportes</title>
+    <title>Início - E-commerce de Artigos Esportivos</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-        <div class="text-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-800">Seja Bem-Vindo!</h1>
-            <p class="text-sm text-gray-500 mt-2">Acesse sua conta para continuar</p>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md py-4 px-6 md:px-12 flex justify-between items-center fixed top-0 left-0 w-full z-10">
+        <div class="flex items-center">
+            <h1 class="text-2xl font-bold text-blue-600">SportsShop</h1>
         </div>
-
-        <form id="loginForm">
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="seu-email@exemplo.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-            </div>
-
-            <div class="mb-6">
-                <label for="password" class="block text-gray-700 text-sm font-semibold mb-2">Senha</label>
-                <input type="password" id="password" name="password" placeholder="••••••••" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                <a href="#" class="text-xs text-blue-500 hover:text-blue-800 float-right">Esqueceu a senha?</a>
-            </div>
-
-            <div class="flex items-center justify-between">
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition duration-300">
-                    Entrar
-                </button>
-            </div>
-        </form>
-
-        <div class="text-center mt-6">
-            <p class="text-sm text-gray-600">
-                Não tem uma conta? 
-                <a href="./sign_in.html" class="text-blue-500 hover:text-blue-800 font-semibold">Crie agora!</a>
-            </p>
+        <div class="flex items-center space-x-6 text-xl text-gray-600">
+            <button id="user-btn" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 transition duration-300">
+                <i class="fas fa-user-circle"></i>
+            </button>
+            <button id="cart-btn" class="relative p-2 rounded-lg hover:bg-gray-100 transition duration-300">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button id="settings-btn" class="p-2 rounded-lg hover:bg-gray-100 transition duration-300">
+                <i class="fas fa-cog"></i>
+            </button>
         </div>
-    </div>
+    </header>
+
+    <main class="container mx-auto px-4 mt-20">
+        <section class="my-8">
+            <div class="relative max-w-2xl mx-auto">
+                <input type="text" placeholder="Pesquisar produtos..." class="w-full py-3 px-5 pr-12 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i class="fas fa-search absolute right-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            
+            <div class="flex justify-center flex-wrap gap-3 mt-6">
+                <a href="#" class="segment-tag bg-white text-gray-700 px-5 py-2 rounded-full shadow-sm hover:bg-gray-100 transition-colors duration-300" data-category="futebol">Raquetes</a>
+                <a href="#" class="segment-tag bg-white text-gray-700 px-5 py-2 rounded-full shadow-sm hover:bg-gray-100 transition-colors duration-300" data-category="corrida">Vestuários</a>
+                <a href="#" class="segment-tag bg-white text-gray-700 px-5 py-2 rounded-full shadow-sm hover:bg-gray-100 transition-colors duration-300" data-category="academia">Insumos</a>
+                <a href="#" class="segment-tag bg-white text-gray-700 px-5 py-2 rounded-full shadow-sm hover:bg-gray-100 transition-colors duration-300" data-category="basquete">Outros</a>
+            </div>
+
+            <div id="category-select-container" class="mt-4 hidden max-w-sm mx-auto">
+                <label for="category-select" class="block text-sm font-medium text-gray-700 mb-2">Mais opções:</label>
+                <select id="category-select" class="w-full border rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Selecione uma categoria...</option>
+                    <option value="camisas">Camisas</option>
+                    <option value="chuteiras">Chuteiras</option>
+                    <option value="bolas">Bolas</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Promoções Especiais</h2>
+            
+            <div class="flex overflow-x-auto gap-4 p-4 hide-scrollbar">
+                <div class="flex-shrink-0 w-80 md:w-96 rounded-lg overflow-hidden shadow-lg bg-white">
+                    <img src="./img/tenis-4.jpeg" alt="Promoção 1" class="w-full h-auto">
+                </div>
+                <div class="flex-shrink-0 w-80 md:w-96 rounded-lg overflow-hidden shadow-lg bg-white">
+                    <img src="./img/raquete-2.jpeg" alt="Promoção 2" class="w-full h-auto">
+                </div>
+                <div class="flex-shrink-0 w-80 md:w-96 rounded-lg overflow-hidden shadow-lg bg-white">
+                    <img src="./img/mesa.jpeg" alt="Promoção 3" class="w-full h-auto">
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-bold mt-12 mb-6 text-center">Lançamentos</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-4 text-center">
+                    <img src="./img/raquete.jpeg" alt="Produto de Lançamento" class="rounded-md mb-2 w-full">
+                    <h3 class="font-semibold text-lg">Produto Novo</h3>
+                    <p class="text-blue-600 font-bold mt-1">R$ 199,90</p>
+                    <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">Comprar</button>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center">
+                    <img src="./img/rede.jpeg" alt="Produto de Lançamento" class="rounded-md mb-2 w-full">
+                    <h3 class="font-semibold text-lg">Produto Novo</h3>
+                    <p class="text-blue-600 font-bold mt-1">R$ 249,90</p>
+                    <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">Comprar</button>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center">
+                    <img src="./img/roupas.jpeg" alt="Produto de Lançamento" class="rounded-md mb-2 w-full">
+                    <h3 class="font-semibold text-lg">Produto Novo</h3>
+                    <p class="text-blue-600 font-bold mt-1">R$ 399,90</p>
+                    <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">Comprar</button>
+                </div>
+                 <div class="bg-white rounded-lg shadow-md p-4 text-center">
+                    <img src="./img/bolinhas.jpeg" alt="Produto de Lançamento" class="rounded-md mb-2 w-full">
+                    <h3 class="font-semibold text-lg">Produto Novo</h3>
+                    <p class="text-blue-600 font-bold mt-1">R$ 450,00</p>
+                    <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">Comprar</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Artigos para Corrida</h2>
+            <div class="flex overflow-x-auto gap-4 p-4 hide-scrollbar">
+                <div class="flex-shrink-0 w-60 bg-white rounded-lg shadow-md p-4 text-center">
+                    <img src="./img/tenis-1.jpeg" alt="Tênis de Corrida" class="rounded-md mb-2 w-full">
+                    <h3 class="font-semibold text-lg">Tênis Modelo X</h3>
+                    <p class="text-blue-600 font-bold mt-1">R$ 550,00</p>
+                </div>
+                 <div class="flex-shrink-0 w-60 bg-white rounded-lg shadow-md p-4 text-center">
+                    <img src="./img/tenis-2.jpeg" alt="Tênis de Corrida" class="rounded-md mb-2 w-full">
+                    <h3 class="font-semibold text-lg">Tênis Modelo Y</h3>
+                    <p class="text-blue-600 font-bold mt-1">R$ 620,00</p>
+                </div>
+                 <div class="flex-shrink-0 w-60 bg-white rounded-lg shadow-md p-4 text-center">
+                    <img src="./img/tenis-3.jpeg" alt="Tênis de Corrida" class="rounded-md mb-2 w-full">
+                    <h3 class="font-semibold text-lg">Tênis Modelo Z</h3>
+                    <p class="text-blue-600 font-bold mt-1">R$ 700,00</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-6 mt-12 text-center">
+        <p>&copy; 2025 E-commerce SportsShop. Todos os direitos autorais reservados para a empresa contratante.</p>
+    </footer>
+
 </body>
 </html>
